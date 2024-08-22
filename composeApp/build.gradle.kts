@@ -29,7 +29,12 @@ kotlin {
             isStatic = true
         }
     }
-    
+
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    compilerOptions {
+        freeCompilerArgs.add("-Xexpect-actual-classes")
+    }
+
     sourceSets {
         
         androidMain.dependencies {
