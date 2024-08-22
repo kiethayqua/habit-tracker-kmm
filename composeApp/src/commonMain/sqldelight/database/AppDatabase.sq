@@ -1,0 +1,28 @@
+import kotlin.Long;
+import kotlin.collections.List;
+
+CREATE TABLE Habit  (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    description TEXT,
+    startDate INTEGER NOT NULL,
+    endDate INTEGER,
+    frequency TEXT NOT NULL,
+    reminderTime INTEGER,
+    steak INTEGER NOT NULL,
+    completedDates TEXT AS List<Long> NOT NULL,
+    color TEXT NOT NULL,
+    icon TEXT NOT NULL
+);
+
+insertHabit:
+INSERT INTO Habit(name, description, startDate, endDate, frequency, reminderTime, steak, completedDates, color, icon)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+removeHabitById:
+DELETE FROM Habit
+WHERE id = ?;
+
+selectAllHabits:
+SELECT *
+FROM Habit;
